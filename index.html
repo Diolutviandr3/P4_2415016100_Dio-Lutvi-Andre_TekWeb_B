@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakta Acak yang Tidak Berguna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fakta Acak yang Tidak Berguna</h1>
+        <div class="fact-container">
+            <p id="fact" class="fact">Memuat...</p>
+        </div>
+        <button id="newFactBtn" class="btn">Dapatkan Fakta Acak Lainnya</button>
+        <div class="footer">
+            Fakta-fakta acak yang tidak berguna untuk memperluas pengetahuan Anda
+        </div>
+        <div class="copyright">
+            &copy; Dio Lutvi Andre - 2025
+        </div>
+    </div>
+
+    <script>
+        // Daftar fakta acak
+        const facts = [
+            "Ada spesies ubur-ubur yang secara biologis abadi.",
+            "Manusia bersifat bioluminesen—kita bersinar dalam gelap, tetapi 1.000 kali lebih lemah daripada yang dapat dilihat mata.",
+            "'Arachibutyrophobia' adalah ketakutan terhadap selai kacang yang menempel di langit-langit mulut Anda.",
+            "Sekelompok flamingo disebut 'flamboyance'.",
+            "Pisang adalah buah beri, tetapi stroberi bukan.",
+            "Gurita memiliki tiga jantung.",
+            "Madu tidak pernah rusak. Arkeolog telah menemukan pot madu di makam Mesir kuno yang berusia lebih dari 3.000 tahun dan masih bisa dimakan dengan sempurna.",
+            "Satu awan dapat memiliki berat lebih dari 1 juta pon.",
+            "Perang terpendek dalam sejarah adalah antara Inggris dan Zanzibar pada tahun 1896. Zanzibar menyerah setelah 38 menit.",
+            "Penemu kaleng Pringles sekarang dimakamkan di dalamnya.",
+            "Satu hari di Venus lebih lama daripada satu tahun di Venus.",
+            "Skotlandia memiliki 421 kata untuk 'salju'.",
+            "Total berat semua semut di Bumi kira-kira sama dengan total berat semua manusia.",
+            "Titik di atas huruf 'i' disebut tittle.",
+            "Jiffy adalah satuan waktu yang sebenarnya: 1/100 detik.",
+            "Unicorn adalah hewan nasional Skotlandia.",
+            "Waktu terlama antara kelahiran dua bayi kembar adalah 87 hari.",
+            "Mouse komputer pertama terbuat dari kayu.",
+            "Buaya tidak bisa menjulurkan lidahnya.",
+            "Tidak mungkin untuk berdengung sambil menahan hidung Anda."
+        ];
+
+        const factElement = document.getElementById('fact');
+        const newFactBtn = document.getElementById('newFactBtn');
+
+        // Fungsi untuk mendapatkan fakta acak
+        function getRandomFact() {
+            // Simulasi loading
+            factElement.textContent = "Memuat...";
+            factElement.classList.add('loading');
+            
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                factElement.textContent = facts[randomIndex];
+                factElement.classList.remove('loading');
+            }, 500);
+        }
+
+        // Event listener untuk tombol
+        newFactBtn.addEventListener('click', getRandomFact);
+
+        // Tampilkan fakta pertama saat halaman dimuat
+        window.addEventListener('load', getRandomFact);
+    </script>
+</body>
+</html>
